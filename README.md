@@ -18,3 +18,7 @@ Run the container
 ```console
 $ docker run -ti -p 4440:4440 -e JAVA_XMX=2048m -e JAVA_XMS=1024m sunnyvaleit/rundeck-community:3.4.8-20211214-1 
 ```
+
+Open your browser and point to http://localhost:4440/
+
+Deault username and password are **admin**/**admin**

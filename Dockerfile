@@ -17,15 +17,16 @@ RUN mkdir /home/rundeck && \
 WORKDIR /home/rundeck
 
 
-
-RUN apt-get update
-RUN apt-get install -y curl gnupg
-RUN apt-get install -y openjdk-11-jre-headless
+RUN add-apt-repository ppa:deadsnakes/ppa
 RUN curl -sL https://packages.rundeck.com/pagerduty/rundeck/gpgkey | apt-key add -
 RUN echo "deb https://packages.rundeck.com/pagerduty/rundeck/any/ any main" | tee -a /etc/apt/sources.list.d/rundeck.list
 RUN echo "deb-src https://packages.rundeck.com/pagerduty/rundeck/any/ any main" | tee -a /etc/apt/sources.list.d/rundeck.list
 RUN apt-get update
+RUN apt-get install -y curl gnupg
+RUN apt-get install -y openjdk-11-jre-headless
 RUN apt-get install -y rundeck=${RUNDECK_VERSION}.${RUNDECK_BUILD}
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
 
 COPY ./scripts/run.sh .
 RUN chmod 755 run.sh

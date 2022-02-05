@@ -1,0 +1,19 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 8abaf5e9-6842-4091-98c9-99480a27fa2f
+  loglevel: INFO
+  name: HelloBashJob
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - script: |-
+        #!/bin/bash
+
+        echo "Hello: @option.arg1@ @option.arg2@"
+    keepgoing: false
+    strategy: node-first
+  uuid: 8abaf5e9-6842-4091-98c9-99480a27fa2f

@@ -16,7 +16,9 @@ RUN mkdir /home/rundeck && \
 
 WORKDIR /home/rundeck
 
-
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y curl
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN curl -sL https://packages.rundeck.com/pagerduty/rundeck/gpgkey | apt-key add -
 RUN echo "deb https://packages.rundeck.com/pagerduty/rundeck/any/ any main" | tee -a /etc/apt/sources.list.d/rundeck.list
